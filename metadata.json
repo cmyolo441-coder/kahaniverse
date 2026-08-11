@@ -1,0 +1,6 @@
+{
+  "name": "KahaniVerse",
+  "description": "Audio drama and story generation platform in Hindi powered by Gemini TTS",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
