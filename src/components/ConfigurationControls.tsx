@@ -156,6 +156,32 @@ export const ConfigurationControls: React.FC<ConfigurationControlsProps> = ({
             </div>
           )}
 
+          {/* Auto-detected Sound Effects (SFX) */}
+          {aiAnalysis.sfxTriggers && aiAnalysis.sfxTriggers.length > 0 && (
+            <div className="pt-2 border-t border-amber-900/40 space-y-1.5">
+              <span className="text-[11px] font-bold text-amber-400 flex items-center justify-between">
+                <span>🔊 ऑटो-डिटेक्टेड साउंड इफेक्ट्स (Auto Dynamic SFX):</span>
+                <span className="text-[10px] text-emerald-400 font-semibold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">
+                  ऑटोमिक मिक्सिंग ऑन
+                </span>
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {aiAnalysis.sfxTriggers.map((sfx, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-stone-950/90 px-2.5 py-1 rounded-lg border border-amber-500/30 flex items-center gap-1.5 text-[11px] text-amber-200"
+                  >
+                    <span className="text-sm">{sfx.iconEmoji}</span>
+                    <span className="font-medium">{sfx.hindiName}</span>
+                    <span className="text-[10px] bg-amber-500/10 text-amber-400 px-1 rounded font-mono">
+                      ~{sfx.positionPercent}%
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {aiAnalysis.sampleEmotionTags && aiAnalysis.sampleEmotionTags.length > 0 && (
             <div className="pt-1.5 border-t border-amber-900/40">
               <span className="text-[11px] font-bold text-amber-400 block mb-1">

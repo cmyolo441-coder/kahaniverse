@@ -271,8 +271,8 @@ export default function App() {
       // 1. Merge voice chunks
       const mergedVoice = mergeAudioBuffers(completedBuffers, 24000);
 
-      // 2. Mix with selected background ambiance sound layer
-      const finalMixed = mixVoiceAndAmbiance(mergedVoice, targetAmbianceId, 24000);
+      // 2. Mix with selected background ambiance sound layer & dynamic story SFX
+      const finalMixed = mixVoiceAndAmbiance(mergedVoice, storyText, targetAmbianceId, 24000);
 
       // 3. Encode to WAV
       const wavBlob = createWavBlob(finalMixed, 24000);

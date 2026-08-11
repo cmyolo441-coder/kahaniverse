@@ -1,6 +1,7 @@
 import { GoogleGenAI, Modality, Type } from '@google/genai';
 import { StoryMood, StoryAIAnalysis, StoryMoodId, BackgroundAmbianceId } from '../types';
 import { base64ToUint8Array, decodeAudioDataToSamples } from './audioEncoder';
+import { detectStorySfxTriggers } from './ambianceSynthesizer';
 
 /**
  * Analyzes story text using Gemini 3.6 Flash to automatically select
@@ -105,6 +106,7 @@ ${storyText.substring(0, 1800)}`;
           { name: 'नायक / लड़का (Boy)', roleType: 'male', voiceId: 'Puck', iconEmoji: '👦', descriptionHindi: 'युवा लड़का संवाद' },
           { name: 'नायिका / लड़की (Girl)', roleType: 'female', voiceId: 'Kore', iconEmoji: '👧', descriptionHindi: 'महिला पात्र संवाद' },
         ],
+        sfxTriggers: detectStorySfxTriggers(storyText),
       };
     }
   } catch (err) {
@@ -128,6 +130,7 @@ ${storyText.substring(0, 1800)}`;
       { name: 'गुरु तेजस / बुजुर्ग (Elder)', roleType: 'elder', voiceId: 'Fenrir', iconEmoji: '👴', descriptionHindi: 'ज्ञानी शिक्षक' },
       { name: 'कालनाग / जानवर (Animal/Beast)', roleType: 'animal', voiceId: 'Charon', iconEmoji: '🐍', descriptionHindi: 'रहस्यमयी जानवर' },
     ],
+    sfxTriggers: detectStorySfxTriggers(storyText),
   };
 }
 

@@ -65,6 +65,26 @@ export interface CharacterRole {
   descriptionHindi: string;
 }
 
+export type SfxType =
+  | 'thunder'
+  | 'explosion'
+  | 'birds'
+  | 'rain_storm'
+  | 'beast_roar'
+  | 'door_knock'
+  | 'river_stream'
+  | 'fire_crackle'
+  | 'footsteps'
+  | 'wind_gust';
+
+export interface SfxTrigger {
+  type: SfxType;
+  hindiName: string;
+  iconEmoji: string;
+  keywordMatched: string;
+  positionPercent: number;
+}
+
 export interface StoryAIAnalysis {
   recommendedVoice: string;
   recommendedVoiceHindi: string;
@@ -75,6 +95,7 @@ export interface StoryAIAnalysis {
   explanationHindi: string;
   sampleEmotionTags?: string[];
   characterCast?: CharacterRole[];
+  sfxTriggers?: SfxTrigger[];
 }
 
 export interface SavedStoryProject {
